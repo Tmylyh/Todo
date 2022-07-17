@@ -51,6 +51,9 @@ extension TodosTableVC{
       //  改
         let row = checkBoxBtn.tag
             self.todos[row].checked.toggle()
+        
+        saveData()
+        
             let checked = self.todos[row].checked
             checkBoxBtn.isSelected = checked
         let cell = tableView.cellForRow(at: IndexPath(row: row, section: 0)) as! TodoCell
@@ -63,6 +66,7 @@ extension TodosTableVC{
             // Delete the row from the data source
             todos.remove(at: indexPath.row)
 //            tableView.deleteRows(at: [indexPath], with: .fade)
+            saveData()
             tableView.reloadData()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -74,7 +78,21 @@ extension TodosTableVC{
         let todoToRemove = todos[fromIndexPath.row]
         todos.remove(at: fromIndexPath.row)
         todos.insert(todoToRemove, at: to.row)
+        saveData()
         
         tableView.reloadData()
+    }
+}
+
+
+extension TodosTableVC{
+    func saveData(){
+        //本地存储
+        do{
+          let data = try JSONEncoder().encode(todos)
+            UserDefaults.standard.set(data, forKey: kTodosKey)//由于是Todo类型所以无法存进plist文件，需转data类型，用json编码
+        }catch{
+            print("编码错误")
+        }
     }
 }

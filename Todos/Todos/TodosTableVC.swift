@@ -9,20 +9,27 @@ import UIKit
 
 class TodosTableVC: UITableViewController {
     
-    var todos = [
-        Todo(name: "旅游", checked: false),
-        Todo(name: "复习", checked: false),
-        Todo(name: "图书馆", checked: false),
-        Todo(name: "面试", checked: false),
-        Todo(name: "入职", checked: false)
-    ]
-    
+    var todos:[Todo] = []
+//    Todo(name: "旅游", checked: false),
+//    Todo(name: "复习", checked: false),
+//    Todo(name: "图书馆", checked: false),
+//    Todo(name: "面试", checked: false),
+//    Todo(name: "入职", checked: false)
     var row = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //打印沙盒路径
+        print(NSHomeDirectory())
         
+        if let data = UserDefaults.standard.data(forKey: kTodosKey){
+            if let todos = try? JSONDecoder().decode([Todo].self, from: data){
+                self.todos = todos
+            }else{
+                print("解码失败")
+            }
+        }//取数据
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

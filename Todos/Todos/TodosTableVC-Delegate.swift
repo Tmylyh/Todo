@@ -37,6 +37,11 @@ extension TodosTableVC: TodoTableVCDelegate{
         
         todos.append(Todo(name: name, checked: false))
         
+        saveData()
+        
+       
+        
+        
         tableView.insertRows(at: [IndexPath(row: todos.count - 1, section: 0)], with: .automatic)
 //        tableView.reloadData()
     }
@@ -45,6 +50,9 @@ extension TodosTableVC: TodoTableVCDelegate{
         let indexPath = IndexPath(row: 0, section: 0)
         let cell = tableView.cellForRow(at: indexPath) as! TodoCell
         cell.todoLabel.text = name
+        
+        saveData()
+        
         tableView.reloadData()
     }
 }
