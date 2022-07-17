@@ -1,0 +1,18 @@
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "K2y-wi-n6l"; */
+"K2y-wi-n6l.title" = "Item";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Kwt-8o-jCw"; */
+"Kwt-8o-jCw.title" = "Item";
+
+/* Class = "UINavigationItem"; title = "添加待办事项"; ObjectID = "Lib-zF-0VI"; */
+"Lib-zF-0VI.title" = "添加待办事项";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "a3i-w4-SDN"; */
+"a3i-w4-SDN.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "我是某个待办事项我是某个待办事项我是某个待办事项我是某个待办事项我是某个待办事项"; ObjectID = "k2i-eC-0ju"; */
+"k2i-eC-0ju.text" = "我是某个待办事项我是某个待办事项我是某个待办事项我是某个待办事项我是某个待办事项";
+
+/* Class = "UINavigationItem"; title = "待办事项"; ObjectID = "sPo-GK-jze"; */
+"sPo-GK-jze.title" = "待办事项";

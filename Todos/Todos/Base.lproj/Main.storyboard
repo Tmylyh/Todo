@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Uk-V1-jPh">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--待办事项-->
+        <scene sceneID="Xdx-v8-efF">
+            <objects>
+                <tableViewController id="Qhm-Ea-z3p" customClass="TodosTableVC" customModule="Todos" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="sBz-yR-AIq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <inset key="separatorInset" minX="66" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TodoCellID" id="ikZ-Yr-yic" customClass="TodoCell" customModule="Todos" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="77.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ikZ-Yr-yic" id="Hd1-bs-l7n">
+                                    <rect key="frame" x="0.0" y="0.0" width="385.5" height="77.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="yIo-eR-PjD">
+                                            <rect key="frame" x="8" y="8" width="363.5" height="61.5"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3i-w4-SDN">
+                                                    <rect key="frame" x="0.0" y="15" width="44" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="deG-J0-LNp"/>
+                                                        <constraint firstAttribute="width" constant="44" id="y3e-hZ-AJf"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
+                                                        <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是某个待办事项我是某个待办事项我是某个待办事项我是某个待办事项我是某个待办事项" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2i-eC-0ju">
+                                                    <rect key="frame" x="56" y="0.5" width="307.5" height="61"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="yIo-eR-PjD" secondAttribute="trailing" constant="14" id="2hq-cb-FgN"/>
+                                        <constraint firstItem="yIo-eR-PjD" firstAttribute="top" secondItem="Hd1-bs-l7n" secondAttribute="top" constant="8" id="CV0-hZ-yvQ"/>
+                                        <constraint firstAttribute="bottom" secondItem="yIo-eR-PjD" secondAttribute="bottom" constant="8" id="Dfi-Ej-QOx"/>
+                                        <constraint firstItem="yIo-eR-PjD" firstAttribute="leading" secondItem="Hd1-bs-l7n" secondAttribute="leading" constant="8" id="bKD-U5-fBz"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="checkBoxBtn" destination="a3i-w4-SDN" id="DAJ-t6-iVl"/>
+                                    <outlet property="todoLabel" destination="k2i-eC-0ju" id="Lnj-8H-ARR"/>
+                                    <segue destination="vO6-6u-1ca" kind="show" identifier="EditTodoID" id="qV7-G4-H6b"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Qhm-Ea-z3p" id="Chg-pk-Eb4"/>
+                            <outlet property="delegate" destination="Qhm-Ea-z3p" id="AXc-aO-DTa"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="待办事项" id="sPo-GK-jze">
+                        <barButtonItem key="rightBarButtonItem" image="plus.circle.fill" catalog="system" id="Kwt-8o-jCw">
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <segue destination="vO6-6u-1ca" kind="show" identifier="AddTodoID" id="ZDb-cT-vpZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t8e-Mv-3bF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1221.7391304347827" y="73.660714285714278"/>
+        </scene>
+        <!--添加待办事项-->
+        <scene sceneID="Qg1-Xc-Tlp">
+            <objects>
+                <tableViewController storyboardIdentifier="TodoTableVCID" id="vO6-6u-1ca" customClass="TodoTableVC" customModule="Todos" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="gCi-qU-v0F">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <sections>
+                            <tableViewSection id="UoG-PA-LFN">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tRr-ky-DWZ">
+                                        <rect key="frame" x="20" y="18" width="374" height="43"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tRr-ky-DWZ" id="fAv-bf-VMP">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KKE-Ji-MNf">
+                                                    <rect key="frame" x="5" y="3" width="364" height="37"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="textColor" systemColor="labelColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="vO6-6u-1ca" id="im0-fQ-v6Y"/>
+                                                    </connections>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KKE-Ji-MNf" firstAttribute="top" secondItem="fAv-bf-VMP" secondAttribute="top" constant="3" id="Iw9-cI-RKb"/>
+                                                <constraint firstAttribute="bottom" secondItem="KKE-Ji-MNf" secondAttribute="bottom" constant="3" id="TlA-CR-R3W"/>
+                                                <constraint firstItem="KKE-Ji-MNf" firstAttribute="leading" secondItem="fAv-bf-VMP" secondAttribute="leading" constant="5" id="ch8-Xy-XcK"/>
+                                                <constraint firstAttribute="trailing" secondItem="KKE-Ji-MNf" secondAttribute="trailing" constant="5" id="rby-rL-hw8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="vO6-6u-1ca" id="sh9-DC-cFz"/>
+                            <outlet property="delegate" destination="vO6-6u-1ca" id="4QC-vG-ArU"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="添加待办事项" id="Lib-zF-0VI">
+                        <barButtonItem key="leftBarButtonItem" image="chevron.backward.circle.fill" catalog="system" id="7nu-1m-3T0">
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <action selector="back:" destination="vO6-6u-1ca" id="0iZ-Ce-OEd"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="checkmark.circle.fill" catalog="system" id="K2y-wi-n6l">
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <action selector="done:" destination="vO6-6u-1ca" id="xYv-f6-Mol"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="todoTextView" destination="KKE-Ji-MNf" id="aav-3c-3Lc"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OWJ-Ec-rOb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1994" y="74"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7dR-Ao-4I7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Uk-V1-jPh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="M88-Iq-0t5">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Qhm-Ea-z3p" kind="relationship" relationship="rootViewController" id="Ks6-Mr-htk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zn7-Gu-yeq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="311.59420289855075" y="73.660714285714278"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="qV7-G4-H6b"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="chevron.backward.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
