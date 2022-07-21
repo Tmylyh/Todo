@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "Todos")
+        let container = NSPersistentContainer(name: "Todos")//持久化容器，name为Todos.xcdatamodeld的名字
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -64,8 +64,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data Saving support
 
     func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
+        let context = persistentContainer.viewContext//容器中的数据
+        if context.hasChanges {//判断数据是否发生了变化
             do {
                 try context.save()
             } catch {

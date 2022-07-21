@@ -23,14 +23,21 @@ class TodosTableVC: UITableViewController {
         //打印沙盒路径
         print(NSHomeDirectory())
         
-        if let data = UserDefaults.standard.data(forKey: kTodosKey){
-            if let todos = try? JSONDecoder().decode([Todo].self, from: data){
-                self.todos = todos
-            }else{
-                print("解码失败")
-            }
-        }//取数据
+//        if let data = UserDefaults.standard.data(forKey: kTodosKey){
+//            if let todos = try? JSONDecoder().decode([Todo].self, from: data){
+//                self.todos = todos
+//            }else{
+//                print("解码失败")
+//            }
+//        }//取数据
+        let request = Todo.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: kOrderID, ascending: true)]
         
+        if let todos = try? context.fetch(request){
+            self.todos = todos
+        }else{
+            print("从SQLite里面取数据失败")
+        }//固定用法取数据
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

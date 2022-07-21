@@ -20,6 +20,7 @@
 		045CC5DC287AD45C00EB4544 /* TodoTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045CC5DB287AD45C00EB4544 /* TodoTableVC.swift */; };
 		045CC5E0287BE36B00EB4544 /* TodosTableVC-DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045CC5DF287BE36B00EB4544 /* TodosTableVC-DataSource.swift */; };
 		045CC5E2287BE37C00EB4544 /* TodosTableVC-Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045CC5E1287BE37C00EB4544 /* TodosTableVC-Delegate.swift */; };
+		047CEC782884FF9000D9F65C /* TodosTable-storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047CEC772884FF9000D9F65C /* TodosTable-storage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		045CC5DE287BE29200EB4544 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		045CC5DF287BE36B00EB4544 /* TodosTableVC-DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodosTableVC-DataSource.swift"; sourceTree = "<group>"; };
 		045CC5E1287BE37C00EB4544 /* TodosTableVC-Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodosTableVC-Delegate.swift"; sourceTree = "<group>"; };
+		047CEC772884FF9000D9F65C /* TodosTable-storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodosTable-storage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				045CC5E1287BE37C00EB4544 /* TodosTableVC-Delegate.swift */,
 				045CC5DF287BE36B00EB4544 /* TodosTableVC-DataSource.swift */,
 				045CC5DB287AD45C00EB4544 /* TodoTableVC.swift */,
+				047CEC772884FF9000D9F65C /* TodosTable-storage.swift */,
 				045CC5D2287AA28A00EB4544 /* TodosTableVC.swift */,
 				045CC5BF287AA0E500EB4544 /* Main.storyboard */,
 				045CC5D6287AB31E00EB4544 /* TodoCell.swift */,
@@ -177,6 +180,7 @@
 				045CC5E2287BE37C00EB4544 /* TodosTableVC-Delegate.swift in Sources */,
 				045CC5E0287BE36B00EB4544 /* TodosTableVC-DataSource.swift in Sources */,
 				045CC5BA287AA0E500EB4544 /* AppDelegate.swift in Sources */,
+				047CEC782884FF9000D9F65C /* TodosTable-storage.swift in Sources */,
 				045CC5BC287AA0E500EB4544 /* SceneDelegate.swift in Sources */,
 				045CC5D3287AA28A00EB4544 /* TodosTableVC.swift in Sources */,
 				045CC5C4287AA0E500EB4544 /* Todos.xcdatamodeld in Sources */,

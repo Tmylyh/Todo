@@ -35,23 +35,27 @@ extension TodosTableVC{
 extension TodosTableVC: TodoTableVCDelegate{
     func didAdd(name: String) {
         
-        todos.append(Todo(name: name, checked: false))
+//        todos.append(Todo(name: name, checked: false))
+//
+//        saveData()
         
-        saveData()
+        let todo = Todo(context: context)//实例化空的容器
+        todo.name = name
+        todos.append(todo)
         
-       
-        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()//判断数据是否改变并保存
         
         tableView.insertRows(at: [IndexPath(row: todos.count - 1, section: 0)], with: .automatic)
 //        tableView.reloadData()
     }
     func didEdit(name: String) {
         todos[row].name = name
-        let indexPath = IndexPath(row: 0, section: 0)
-        let cell = tableView.cellForRow(at: indexPath) as! TodoCell
-        cell.todoLabel.text = name
+        appDelegate.saveContext()
+//        let indexPath = IndexPath(row: 0, section: 0)
+//        let cell = tableView.cellForRow(at: indexPath) as! TodoCell
+//        cell.todoLabel.text = name
         
-        saveData()
+        //saveData()
         
         tableView.reloadData()
     }

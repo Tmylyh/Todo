@@ -16,6 +16,9 @@ extension TodosTableVC{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: kTodoCellID, for: indexPath) as! TodoCell
+        todos[indexPath.row].orderID = Int16(indexPath.row)
+        appDelegate.saveContext()//根据内存中排好的顺序赋值
+        
         let checkBoxBtn = cell.checkBoxBtn!
         let todoLabel = cell.todoLabel!
         let initSelected = todos[indexPath.row].checked
@@ -52,8 +55,8 @@ extension TodosTableVC{
         let row = checkBoxBtn.tag
             self.todos[row].checked.toggle()
         
-        saveData()
-        
+        //saveData()
+        appDelegate.saveContext()
             let checked = self.todos[row].checked
             checkBoxBtn.isSelected = checked
         let cell = tableView.cellForRow(at: IndexPath(row: row, section: 0)) as! TodoCell
@@ -64,9 +67,11 @@ extension TodosTableVC{
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            context.delete(todos[indexPath.row])//先删除本地，再删除内存，本地通过内存找到
             todos.remove(at: indexPath.row)
+            appDelegate.saveContext()
 //            tableView.deleteRows(at: [indexPath], with: .fade)
-            saveData()
+            //saveData()
             tableView.reloadData()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -78,21 +83,11 @@ extension TodosTableVC{
         let todoToRemove = todos[fromIndexPath.row]
         todos.remove(at: fromIndexPath.row)
         todos.insert(todoToRemove, at: to.row)
-        saveData()
+        //saveData()
         
         tableView.reloadData()
     }
 }
 
 
-extension TodosTableVC{
-    func saveData(){
-        //本地存储
-        do{
-          let data = try JSONEncoder().encode(todos)
-            UserDefaults.standard.set(data, forKey: kTodosKey)//由于是Todo类型所以无法存进plist文件，需转data类型，用json编码
-        }catch{
-            print("编码错误")
-        }
-    }
-}
+

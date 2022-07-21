@@ -12,7 +12,7 @@ import Foundation
 //    var checked = ""
 //}
 
-struct Todo: Encodable, Decodable {//为了可以encoder可编码,可直接用Codable
-    var name: String
-    var checked: Bool
-}
+//struct Todo: Encodable, Decodable {//为了可以encoder可编码,可直接用Codable
+//    var name: String
+//    var checked: Bool
+//}
